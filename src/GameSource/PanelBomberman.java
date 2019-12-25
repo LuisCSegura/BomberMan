@@ -9,16 +9,8 @@ import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.FontFormatException;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -52,6 +44,7 @@ public class PanelBomberman extends JPanel implements KeyListener {
         ultPulsada = 0;
         fuenteTitulo = Util.obtFuente("Bomberfont-Regular.ttf", 203);
         fuenteSubtitulo = Util.obtFuente("ARCADEPI.ttf", 30);
+        assert fuenteSubtitulo != null;
         fuenteMiniSub = fuenteSubtitulo.deriveFont(Font.PLAIN, 25);
         fuenteSimb = Util.obtFuente("seguisym.ttf", 30);
         posFlecha = 540;

@@ -51,36 +51,30 @@ public class Stage {
             for (int j = 0; j < bloques[i].length; j++) {
                 if (i == 0 || i == 12) {
                     bloques[i][j] = new Bloque(j * 50, (i * 50) + 100, 1);
-                } else if (i > 0 && i % 2 != 0) {
+                } else if (i % 2 != 0) {
                     if (i == 1 && (j == 1 || j == 2)) {
                         bloques[i][j] = new Bloque(j * 50, (i * 50) + 100, 0);
                     } else if (j == 0 || j == 30) {
                         bloques[i][j] = new Bloque(j * 50, (i * 50) + 100, 1);
                     } else {
                         int a = (int) ((Math.random() * 4) + 1);
-                        switch (a) {
-                            case 1:
-                                bloques[i][j] = new Bloque(j * 50, (i * 50) + 100, 2);
-                                break;
-                            default:
-                                bloques[i][j] = new Bloque(j * 50, (i * 50) + 100, 0);
-                                break;
+                        if (a == 1) {
+                            bloques[i][j] = new Bloque(j * 50, (i * 50) + 100, 2);
+                        } else {
+                            bloques[i][j] = new Bloque(j * 50, (i * 50) + 100, 0);
                         }
                     }
-                } else if (i > 0 && i % 2 == 0) {
+                } else if (i % 2 == 0) {
                     if (i == 2 && j == 1) {
                         bloques[i][j] = new Bloque(j * 50, (i * 50) + 100, 0);
-                    } else if (j == 0 || j % 2 == 0) {
+                    } else if (j % 2 == 0) {
                         bloques[i][j] = new Bloque(j * 50, (i * 50) + 100, 1);
                     } else {
                         int a = (int) ((Math.random() * 4) + 1);
-                        switch (a) {
-                            case 1:
-                                bloques[i][j] = new Bloque(j * 50, (i * 50) + 100, 2);
-                                break;
-                            default:
-                                bloques[i][j] = new Bloque(j * 50, (i * 50) + 100, 0);
-                                break;
+                        if (a == 1) {
+                            bloques[i][j] = new Bloque(j * 50, (i * 50) + 100, 2);
+                        } else {
+                            bloques[i][j] = new Bloque(j * 50, (i * 50) + 100, 0);
                         }
                     }
                 }
@@ -102,12 +96,12 @@ public class Stage {
             blockPoder = (int) ((Math.random() * cantBlock) + 1);
         }
         int numBlock = 0;
-        for (int i = 0; i < bloques.length; i++) {
-            for (int j = 0; j < bloques[i].length; j++) {
-                if (bloques[i][j].getTipo() == 2) {
+        for (Bloque[] bloque : bloques) {
+            for (Bloque value : bloque) {
+                if (value.getTipo() == 2) {
                     numBlock++;
                     if (numBlock == blockPuerta) {
-                        puerta = new Puerta(bloques[i][j].getX(), bloques[i][j].getY(), bloques[i][j]);
+                        puerta = new Puerta(value.getX(), value.getY(), value);
                     } else if (numBlock == blockPoder) {
                         int aleatorio = (int) (Math.random() * 100) + 1;
                         if (bomber.isDetonator()) {
@@ -144,7 +138,7 @@ public class Stage {
                         } else {
                             numPoder = 6;
                         }
-                        poder = new Poder(numPoder, bloques[i][j].getX(), bloques[i][j].getY(), bloques[i][j]);
+                        poder = new Poder(numPoder, value.getX(), value.getY(), value);
                     }
                 }
             }
@@ -224,12 +218,12 @@ public class Stage {
      */
     private void agregarEnemigo(int bloque, int nivel) {
         int cantBlock = 0;
-        for (int i = 0; i < bloques.length; i++) {
-            for (int j = 0; j < bloques[i].length; j++) {
-                int xB = bloques[i][j].getX();
-                int yB = bloques[i][j].getY();
+        for (Bloque[] value : bloques) {
+            for (Bloque item : value) {
+                int xB = item.getX();
+                int yB = item.getY();
                 if (!((xB == 50 && yB == 150) || (xB == 100 && yB == 150) || (xB == 50 && yB == 200))) {
-                    if (bloques[i][j].getTipo() == 0) {
+                    if (item.getTipo() == 0) {
                         cantBlock++;
                         if (cantBlock == bloque) {
                             Enemigo e = new Enemigo(xB, yB, nivel);
@@ -252,10 +246,10 @@ public class Stage {
      */
     public void pintarNivel(Graphics g) {
         //        cambiar X y Y
-        for (int i = 0; i < bloques.length; i++) {
-            for (int j = 0; j < bloques[i].length; j++) {
-                bloques[i][j].setX(bloques[i][j].getX() + (x - xAnt));
-                bloques[i][j].setY(bloques[i][j].getY() + (y - yAnt));
+        for (Bloque[] item : bloques) {
+            for (Bloque bloque : item) {
+                bloque.setX(bloque.getX() + (x - xAnt));
+                bloque.setY(bloque.getY() + (y - yAnt));
             }
         }
         for (Enemigo enemigo : enemigos) {
@@ -278,9 +272,9 @@ public class Stage {
         yAnt = y;
 //        pintar fondo
         g.setColor(new Color(0, 148, 0));
-        g.fillRect(0, y + 0, 1550 + 2 * x, 750);
+        g.fillRect(x, y, 800, 750);
         g.setColor(new Color(188, 188, 188));
-        g.fillRect(0, y + 0, 800 + 2 * x, 100);
+        g.fillRect(x, y, 800, 100);
 
 //        pintar datos
         g.setColor(Color.black);
@@ -440,9 +434,9 @@ public class Stage {
                 bomba.mover(bomber, enemigos);
             }
 //        mover bloques
-            for (int i = 0; i < bloques.length; i++) {
-                for (int j = 0; j < bloques[i].length; j++) {
-                    bloques[i][j].mover();
+            for (Bloque[] bloque : bloques) {
+                for (Bloque value : bloque) {
+                    value.mover();
                 }
             }
 //          mover poder
@@ -457,35 +451,31 @@ public class Stage {
             } else if (bomber.getVelVar() > 0) {
                 int tx = bomber.getX();
                 int ty = bomber.getY();
-                switch (bomber.getDireccion()) {
-                    case 0:
+                if (bomber.getDireccion()==0) {
                         bomber.mover(bloques, bombas, true);
                         if (bomber.getX() == tx && ty == bomber.getY() && bomberDesalineado()) {
                             alinearBomberX();
                         }
-                        break;
-                    case 1:
+                }else if (bomber.getDireccion()==1) {
                         bomber.mover(bloques, bombas, true);
                         if (bomber.getX() == tx && ty == bomber.getY() && bomberDesalineado()) {
                             alinearBomberX();
                         }
-                        break;
-                    case 2:
+                }else if (bomber.getDireccion()==2) {
                         bomber.cambiarPasos();
                         bomber.mover(bloques, bombas, true);
                         moverTodoDerecha(bomber.getVelConst());
                         if (bomber.vaAChocar(bloques, bombas)) {
                             moverTodoIzquierda(bomber.getVelConst());
                         }
-                        break;
-                    case 3:
-                        bomber.cambiarPasos();
-                        bomber.mover(bloques, bombas, true);
-                        moverTodoIzquierda(bomber.getVelConst());
-                        if (bomber.vaAChocar(bloques, bombas)) {
-                            moverTodoDerecha(bomber.getVelConst());
-                        }
-                        break;
+                }else if (bomber.getDireccion()==3) {
+                    bomber.cambiarPasos();
+                    bomber.mover(bloques, bombas, true);
+                    moverTodoIzquierda(bomber.getVelConst());
+                    if (bomber.vaAChocar(bloques, bombas)) {
+                        moverTodoDerecha(bomber.getVelConst());
+                    }
+
                 }
             }
         }
@@ -526,20 +516,20 @@ public class Stage {
     }
 
     private boolean bomberEnRango() {
-        for (int i = 0; i < bloques.length; i++) {
-            for (int j = 0; j < bloques[i].length; j++) {
+        for (Bloque[] bloque : bloques) {
+            for (int j = 0; j < bloque.length; j++) {
                 if (j == 7) {
                     if ((bomber.getDireccion() == 0 || bomber.getDireccion() == 1)
-                            && bomber.getX() > bloques[i][j].getX()
-                            && bomber.getX() < bloques[i][j].getX() + 750) {
+                            && bomber.getX() > bloque[j].getX()
+                            && bomber.getX() < bloque[j].getX() + 750) {
                         return true;
                     } else if (bomber.getDireccion() == 2
-                            && bomber.getX() > bloques[i][j].getX()
-                            && bomber.getX() <= bloques[i][j].getX() + 750) {
+                            && bomber.getX() > bloque[j].getX()
+                            && bomber.getX() <= bloque[j].getX() + 750) {
                         return true;
                     } else if (bomber.getDireccion() == 3
-                            && bomber.getX() >= bloques[i][j].getX()
-                            && bomber.getX() < bloques[i][j].getX() + 750) {
+                            && bomber.getX() >= bloque[j].getX()
+                            && bomber.getX() < bloque[j].getX() + 750) {
                         return true;
                     }
                 }
@@ -549,9 +539,9 @@ public class Stage {
     }
 
     private void moverTodoDerecha(int recorrido) {
-        for (int i = 0; i < bloques.length; i++) {
-            for (int j = 0; j < bloques[i].length; j++) {
-                bloques[i][j].setX(bloques[i][j].getX() + recorrido);
+        for (Bloque[] bloque : bloques) {
+            for (Bloque value : bloque) {
+                value.setX(value.getX() + recorrido);
             }
         }
         for (Enemigo enemigo : enemigos) {
@@ -565,9 +555,9 @@ public class Stage {
     }
 
     private void moverTodoIzquierda(int recorrido) {
-        for (int i = 0; i < bloques.length; i++) {
-            for (int j = 0; j < bloques[i].length; j++) {
-                bloques[i][j].setX(bloques[i][j].getX() - recorrido);
+        for (Bloque[] bloque : bloques) {
+            for (Bloque value : bloque) {
+                value.setX(value.getX() - recorrido);
             }
         }
         for (Enemigo enemigo : enemigos) {
@@ -716,12 +706,12 @@ public class Stage {
      */
     private int cantBlocPorTipo(int tipo) {
         int cantBlock = 0;
-        for (int i = 0; i < bloques.length; i++) {
-            for (int j = 0; j < bloques[i].length; j++) {
-                int xB = bloques[i][j].getX();
-                int yB = bloques[i][j].getY();
+        for (Bloque[] bloque : bloques) {
+            for (Bloque value : bloque) {
+                int xB = value.getX();
+                int yB = value.getY();
                 if (!((xB == 50 && yB == 150) || (xB == 100 && yB == 150) || (xB == 50 && yB == 200))) {
-                    if (bloques[i][j].getTipo() == tipo) {
+                    if (value.getTipo() == tipo) {
                         cantBlock++;
                     }
                 }
@@ -772,16 +762,12 @@ public class Stage {
     }
 
     /**
-     * verifica si el bomberman ya cruzo la puerta que lo lleva a otro nivel
+     * verifica si el bomberman ya cruzó la puerta que lo lleva a otro nivel
      *
-     * @return
+     * @return true si cruzó la puerta, false si no
      */
     private boolean cruzoPuerta() {
-
-        if (puerta.isEstado() && bomber.getMiniBounds().intersects(puerta.getBouns())) {
-            return true;
-        }
-        return false;
+        return puerta.isEstado() && bomber.getMiniBounds().intersects(puerta.getBouns());
     }
 //    GETTERS
 //    ----------------------------------------------------------------------------------------------------------
@@ -796,58 +782,6 @@ public class Stage {
 
     public int getEstado() {
         return estado;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public int getNivel() {
-        return nivel;
-    }
-
-    public Bomberman getBomber() {
-        return bomber;
-    }
-
-    public Puerta getPuerta() {
-        return puerta;
-    }
-
-    public Poder getPoder() {
-        return poder;
-    }
-
-    public Bloque[][] getBloques() {
-        return bloques;
-    }
-
-    public int getCantBombas() {
-        return cantBombas;
-    }
-
-    public int getRangoBombas() {
-        return rangoBombas;
-    }
-
-    public Font getFuenteSubtitulo() {
-        return fuenteSubtitulo;
-    }
-
-    public int getContSubNivel() {
-        return contSubNivel;
-    }
-
-    public LinkedList<Bomba> getBombas() {
-        return bombas;
-    }
-
-    public LinkedList<Enemigo> getEnemigos() {
-        return enemigos;
     }
 
 //    SETTERS
@@ -868,52 +802,8 @@ public class Stage {
         this.y = y;
     }
 
-    public void setNivel(int nivel) {
-        this.nivel = nivel;
-    }
-
-    public void setBomber(Bomberman bomber) {
-        this.bomber = bomber;
-    }
-
-    public void setPuerta(Puerta puerta) {
-        this.puerta = puerta;
-    }
-
-    public void setPoder(Poder poder) {
-        this.poder = poder;
-    }
-
-    public void setBloques(Bloque[][] bloques) {
-        this.bloques = bloques;
-    }
-
     public void setCorriendo(boolean corriendo) {
         this.corriendo = corriendo;
-    }
-
-    public void setCantBombas(int cantBombas) {
-        this.cantBombas = cantBombas;
-    }
-
-    public void setRangoBombas(int rangoBombas) {
-        this.rangoBombas = rangoBombas;
-    }
-
-    public void setFuenteSubtitulo(Font fuenteSubtitulo) {
-        this.fuenteSubtitulo = fuenteSubtitulo;
-    }
-
-    public void setContSubNivel(int contSubNivel) {
-        this.contSubNivel = contSubNivel;
-    }
-
-    public void setBombas(LinkedList<Bomba> bombas) {
-        this.bombas = bombas;
-    }
-
-    public void setEnemigos(LinkedList<Enemigo> enemigos) {
-        this.enemigos = enemigos;
     }
 
 }
