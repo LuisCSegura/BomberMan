@@ -309,9 +309,9 @@ public class Stage {
         puerta.pintar(g);
         poder.pintar(g);
 //        pinatar bloques
-        for (int i = 0; i < bloques.length; i++) {
-            for (int j = 0; j < bloques[i].length; j++) {
-                bloques[i][j].pintar(g);
+        for (Bloque[] bloque : bloques) {
+            for (Bloque value : bloque) {
+                value.pintar(g);
             }
         }
 //        pintar bombas
@@ -370,7 +370,7 @@ public class Stage {
                 corriendo = true;
             }
         }else if(!corriendo){
-            g.setColor(Color.BLACK);
+            g.setColor(new Color(0,0,0,200));
             g.fillRect(x, y, 800, 750);
 
         }
