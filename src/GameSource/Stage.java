@@ -101,7 +101,7 @@ public class Stage {
                 if (value.getTipo() == 2) {
                     numBlock++;
                     if (numBlock == blockPuerta) {
-                        puerta = new Puerta(value.getX(), value.getY(), value);
+                        puerta = new Puerta(value.getX(), value.getY());
                     } else if (numBlock == blockPoder) {
                         int aleatorio = (int) (Math.random() * 100) + 1;
                         if (bomber.isDetonator()) {
@@ -317,7 +317,7 @@ public class Stage {
             enemigo.pintar(g);
         }
 //        pintar bomberman
-        bomber.pintar(g, bloques);
+        bomber.pintar(g);
 //        pintar estado
         if (estado == 0) {
             g.setColor(Color.BLACK);
@@ -496,19 +496,19 @@ public class Stage {
     }
 
     public void moverBomberAbajo() {
-        bomber.moverAbajo(bloques);
+        bomber.moverAbajo();
     }
 
     public void moverBomberArriba() {
-        bomber.moverArriba(bloques);
+        bomber.moverArriba();
     }
 
     public void moverBomberIzquierda() {
-        bomber.moverIzquierda(bloques);
+        bomber.moverIzquierda();
     }
 
     public void moverBomberDerecha() {
-        bomber.moverDerecha(bloques);
+        bomber.moverDerecha();
     }
 
     public void detenerBomber() {

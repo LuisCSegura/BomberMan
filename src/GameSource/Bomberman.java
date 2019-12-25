@@ -6,7 +6,6 @@
 package GameSource;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.LinkedList;
@@ -27,7 +26,6 @@ public class Bomberman {
     private boolean conVida;
     private int pasos;
     private int contPasos;
-    private int smooth;
 //    poderes
     private boolean detonator;
     private boolean wallPass;
@@ -51,7 +49,6 @@ public class Bomberman {
         speed=false;
         pasos = 0;
         contPasos = 0;
-        smooth = 0;
         contTiempoMuerte = 0;
 
     }
@@ -62,7 +59,7 @@ public class Bomberman {
      *
      * @param g componente grfico que permite dibujar en la ventana
      */
-    public void pintar(Graphics g, Bloque[][] bloques) {
+    public void pintar(Graphics g) {
         g.setColor(Color.white);
         if (conVida) {
             switch (direccion) {
@@ -816,10 +813,10 @@ public class Bomberman {
     }
 
     public Bloque getBloque(Bloque[][] bloques) {
-        for (int i = 0; i < bloques.length; i++) {
-            for (int j = 0; j < bloques[i].length; j++) {
-                if (getMiniBounds().intersects(bloques[i][j].getBonds())) {
-                    return bloques[i][j];
+        for (Bloque[] bloque : bloques) {
+            for (Bloque value : bloque) {
+                if (getMiniBounds().intersects(value.getBonds())) {
+                    return value;
                 }
 
             }
@@ -870,22 +867,22 @@ public class Bomberman {
         contTiempoMuerte = 0;
     }
 
-    public void moverAbajo(Bloque[][] bloques) {
+    public void moverAbajo() {
         direccion = 0;
         velVar = velConst;
     }
 
-    public void moverArriba(Bloque[][] bloques) {
+    public void moverArriba() {
         direccion = 1;
         velVar = velConst;
     }
 
-    public void moverIzquierda(Bloque[][] bloques) {
+    public void moverIzquierda() {
         direccion = 2;
         velVar = velConst;
     }
 
-    public void moverDerecha(Bloque[][] bloques) {
+    public void moverDerecha() {
         direccion = 3;
         velVar = velConst;
     }
@@ -965,14 +962,14 @@ public class Bomberman {
      * @return true en caso chocar, false en caso de no chocar
      */
     public boolean vaAChocar(Bloque[][] bloques, LinkedList<Bomba> bombas) {
-        for (int i = 0; i < bloques.length; i++) {
-            for (int j = 0; j < bloques[i].length; j++) {
+        for (Bloque[] bloque : bloques) {
+            for (Bloque value : bloque) {
                 if (!wallPass) {
-                    if (bloques[i][j].getTipo() != 0 && getBondsBomber().intersects(bloques[i][j].getBonds())) {
+                    if (value.getTipo() != 0 && getBondsBomber().intersects(value.getBonds())) {
                         return true;
                     }
                 } else {
-                    if (bloques[i][j].getTipo() != 0 && bloques[i][j].getTipo() != 2 && getBondsBomber().intersects(bloques[i][j].getBonds())) {
+                    if (value.getTipo() != 0 && value.getTipo() != 2 && getBondsBomber().intersects(value.getBonds())) {
                         return true;
                     }
                 }
@@ -993,10 +990,6 @@ public class Bomberman {
 
     public void setY(int y) {
         this.y = y;
-    }
-
-    public void setDireccion(int direccion) {
-        this.direccion = direccion;
     }
 
     public void setVelConst(int velocidad) {
@@ -1062,34 +1055,6 @@ public class Bomberman {
 
     public int getVelVar() {
         return velVar;
-    }
-
-    public int getPasos() {
-        return pasos;
-    }
-
-    public int getContPasos() {
-        return contPasos;
-    }
-
-    public int getSmooth() {
-        return smooth;
-    }
-
-    public void setVelVar(int velVar) {
-        this.velVar = velVar;
-    }
-
-    public void setPasos(int pasos) {
-        this.pasos = pasos;
-    }
-
-    public void setContPasos(int contPasos) {
-        this.contPasos = contPasos;
-    }
-
-    public void setSmooth(int smooth) {
-        this.smooth = smooth;
     }
 
     public int getContTiempoMuerte() {

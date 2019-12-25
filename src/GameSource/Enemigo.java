@@ -122,7 +122,7 @@ public class Enemigo {
                 } else if (contPasos <= 600) {
                     g.setColor(Color.BLACK);
                     g.fillRect(x + 14, y + 1, 22, 4);
-                    g.fillRect(x + 16, y + 0, 18, 2);
+                    g.fillRect(x + 16, y, 18, 2);
                     int[] xsCuerpoSombra = {x + 5, x + 4, x + 4, x + 5, x + 12, x + 38, x + 44, x + 46, x + 46, x + 44, x + 27, x + 23};
                     int[] ysCuerpoSombra = {y + 29, y + 27, y + 11, y + 9, y + 2, y + 2, y + 8, y + 12, y + 26, y + 30, y + 47, y + 47};
                     g.fillPolygon(xsCuerpoSombra, ysCuerpoSombra, xsCuerpoSombra.length);
@@ -215,9 +215,9 @@ public class Enemigo {
                         g.fillRoundRect(x + 4, y + 9, 42, 34, 10, 10);
                         g.fillRoundRect(x + 4, y + 6, 32, 20, 10, 10);
                         g.fillRoundRect(x + 38, y + 6, 11, 15, 10, 10);
-                        g.fillOval(x + 13, y + 0, 20, 23);
+                        g.fillOval(x + 13, y, 20, 23);
                         g.fillRoundRect(x + 31, y + 26, 18, 23, 16, 16);
-                        g.fillOval(x + 0, y + 24, 32, 25);
+                        g.fillOval(x, y + 24, 32, 25);
                         g.setColor(new Color(13, 188, 255));
                         g.fillRoundRect(x + 6, y + 11, 38, 30, 10, 10);
                         g.fillRoundRect(x + 6, y + 8, 28, 16, 10, 10);
@@ -304,7 +304,7 @@ public class Enemigo {
                         g.fillRoundRect(x + 4, y + 9, 42, 34, 10, 10);
                         g.fillRoundRect(x + 14, y + 6, 32, 20, 10, 10);
                         g.fillRoundRect(x + 1, y + 6, 11, 15, 10, 10);
-                        g.fillOval(x + 17, y + 0, 20, 23);
+                        g.fillOval(x + 17, y, 20, 23);
                         g.fillRoundRect(x + 1, y + 26, 18, 23, 16, 16);
                         g.fillOval(x + 18, y + 24, 32, 25);
                         g.setColor(new Color(13, 188, 255));
@@ -334,7 +334,7 @@ public class Enemigo {
                 if (contPasos <= 150 || (contPasos > 300 && contPasos <= 450)) {
                     g.setColor(Color.BLACK);
                     g.fillRect(x + 7, y + 16, 36, 30);
-                    g.fillOval(x + 6, y + 0, 37, 39);
+                    g.fillOval(x + 6, y, 37, 39);
                     g.fillRoundRect(x + 10, y + 33, 16, 16, 8, 8);
                     g.fillRoundRect(x + 24, y + 33, 16, 16, 8, 8);
                     g.fillRect(x + 6, y + 40, 10, 7);
@@ -373,7 +373,7 @@ public class Enemigo {
                     if (!directOjos) {
                         g.setColor(Color.BLACK);
                         g.fillRect(x + 7, y + 16, 36, 30);
-                        g.fillOval(x + 6, y + 0, 37, 39);
+                        g.fillOval(x + 6, y, 37, 39);
                         g.fillRoundRect(x + 30, y + 38, 16, 11, 10, 10);
                         g.fillRoundRect(x + 18, y + 38, 13, 11, 10, 10);
                         g.fillRoundRect(x + 4, y + 38, 13, 11, 10, 10);
@@ -395,7 +395,7 @@ public class Enemigo {
                     } else {
                         g.setColor(Color.BLACK);
                         g.fillRect(x + 7, y + 16, 36, 30);
-                        g.fillOval(x + 6, y + 0, 37, 39);
+                        g.fillOval(x + 6, y, 37, 39);
                         g.fillRoundRect(x + 4, y + 38, 16, 11, 10, 10);
                         g.fillRoundRect(x + 19, y + 38, 13, 11, 10, 10);
                         g.fillRoundRect(x + 33, y + 38, 13, 11, 10, 10);
@@ -419,7 +419,7 @@ public class Enemigo {
                 } else if (contPasos <= 600) {
                     if (!directOjos) {
                         g.setColor(Color.BLACK);
-                        g.fillOval(x + 0, y + 0, 39, 39);
+                        g.fillOval(x, y, 39, 39);
                         int[] xsCuerpoSombra = {x + 4, x + 16, x + 25, x + 27, x + 26, x + 28, x + 40, x + 50, x + 42, x + 38};
                         int[] ysCuerpoSombra = {y + 31, y + 46, y + 46, y + 43, y + 43, y + 46, y + 46, y + 33, y + 24, y + 15};
                         g.fillPolygon(xsCuerpoSombra, ysCuerpoSombra, xsCuerpoSombra.length);
@@ -436,8 +436,8 @@ public class Enemigo {
                         g.fillRect(x + 22, y + 19, 3, 7);
                     } else {
                         g.setColor(Color.BLACK);
-                        g.fillOval(x + 11, y + 0, 39, 39);
-                        int[] xsCuerpoSombra = {x + 46, x + 34, x + 25, x + 23, x + 24, x + 22, x + 10, x + 0, x + 8, x + 12};
+                        g.fillOval(x + 11, y, 39, 39);
+                        int[] xsCuerpoSombra = {x + 46, x + 34, x + 25, x + 23, x + 24, x + 22, x + 10, x, x + 8, x + 12};
                         int[] ysCuerpoSombra = {y + 31, y + 46, y + 46, y + 43, y + 43, y + 46, y + 46, y + 33, y + 24, y + 15};
                         g.fillPolygon(xsCuerpoSombra, ysCuerpoSombra, xsCuerpoSombra.length);
                         g.setColor(new Color(220, 0, 100));
@@ -462,7 +462,7 @@ public class Enemigo {
                     case 1:
                         g.setColor(Color.BLACK);
                         g.fillRect(x + 14, y + 1, 22, 4);
-                        g.fillRect(x + 16, y + 0, 18, 2);
+                        g.fillRect(x + 16, y, 18, 2);
                         int[] xsCuerpoSombra = {x + 5, x + 4, x + 4, x + 5, x + 12, x + 38, x + 44, x + 46, x + 46, x + 44, x + 27, x + 23};
                         int[] ysCuerpoSombra = {y + 29, y + 27, y + 11, y + 9, y + 2, y + 2, y + 8, y + 12, y + 26, y + 30, y + 47, y + 47};
                         g.fillPolygon(xsCuerpoSombra, ysCuerpoSombra, xsCuerpoSombra.length);
@@ -524,7 +524,7 @@ public class Enemigo {
                     default:
                         g.setColor(Color.BLACK);
                         g.fillRect(x + 7, y + 16, 36, 30);
-                        g.fillOval(x + 6, y + 0, 37, 39);
+                        g.fillOval(x + 6, y, 37, 39);
                         g.fillRect(x + 4, y + 39, 14, 10);
                         g.fillRect(x + 20, y + 39, 11, 10);
                         g.fillRect(x + 35, y + 39, 11, 10);
@@ -674,10 +674,10 @@ public class Enemigo {
     }
 
     public Bloque getBloque(Bloque[][] bloques) {
-        for (int i = 0; i < bloques.length; i++) {
-            for (int j = 0; j < bloques[i].length; j++) {
-                if (getMiniBounds().intersects(bloques[i][j].getBonds())) {
-                    return bloques[i][j];
+        for (Bloque[] bloque : bloques) {
+            for (Bloque value : bloque) {
+                if (getMiniBounds().intersects(value.getBonds())) {
+                    return value;
                 }
 
             }
@@ -767,15 +767,15 @@ public class Enemigo {
      * @return true si va achocar, de lo contrario false
      */
     private boolean vaAChocar(Bloque[][] bloques, LinkedList<Bomba> bombas, Bomberman bomber) {
-        for (int i = 0; i < bloques.length; i++) {
-            for (int j = 0; j < bloques[i].length; j++) {
+        for (Bloque[] bloque : bloques) {
+            for (Bloque value : bloque) {
 
-                if (nivel == 1 && bloques[i][j].getTipo() != 0 && getBonds().intersects(bloques[i][j].getBonds())) {
+                if (nivel == 1 && value.getTipo() != 0 && getBonds().intersects(value.getBonds())) {
                     return true;
-                } else if ((nivel == 2 || nivel==3)&&bloques[i][j].getTipo() == 1 && getBonds().intersects(bloques[i][j].getBonds())) {
+                } else if ((nivel == 2 || nivel == 3) && value.getTipo() == 1 && getBonds().intersects(value.getBonds())) {
                     return true;
                 }
-                if (bloques[i][j].getTipo() == 3 && getBondsEnem().intersects(bloques[i][j].getBonds())) {
+                if (value.getTipo() == 3 && getBondsEnem().intersects(value.getBonds())) {
                     estado = 2;
                 }
 
@@ -839,20 +839,8 @@ public class Enemigo {
         this.y = y;
     }
 
-    public void setNivel(int nivel) {
-        this.nivel = nivel;
-    }
-
-    public void setVelocidad(int velocidad) {
-        this.velocidad = velocidad;
-    }
-
     public void setDireccion(int direccion) {
         this.direccion = direccion;
-    }
-
-    public void setPuntos(int puntos) {
-        this.puntos = puntos;
     }
 
     public void setEstado(int estado) {
@@ -865,14 +853,6 @@ public class Enemigo {
 
     public int getY() {
         return y;
-    }
-
-    public int getNivel() {
-        return nivel;
-    }
-
-    public int getVelocidad() {
-        return velocidad;
     }
 
     public int getDireccion() {

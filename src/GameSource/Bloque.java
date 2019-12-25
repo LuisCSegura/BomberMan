@@ -218,10 +218,6 @@ public class Bloque {
         this.tipo = tipo;
     }
 
-    public void setDestruccion(int destruccion) {
-        this.destruccion = destruccion;
-    }
-
     public int getX() {
         return x;
     }
@@ -232,10 +228,6 @@ public class Bloque {
 
     public int getTipo() {
         return tipo;
-    }
-
-    public int getDestruccion() {
-        return destruccion;
     }
 
 }

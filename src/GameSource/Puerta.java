@@ -16,13 +16,11 @@ import java.awt.Rectangle;
 public class Puerta {
     private int x;
     private int y;
-    private Bloque bloque;
-    private boolean estado; 
+    private boolean estado;
 
-    public Puerta(int x, int y,Bloque bloque) {
+    public Puerta(int x, int y) {
         this.x = x;
         this.y = y;
-        this.bloque=bloque;
         estado=false;
     }
     /**

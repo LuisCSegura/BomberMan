@@ -6,14 +6,8 @@
 package GameSource;
 
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontFormatException;
 import java.awt.Graphics;
 import java.awt.Rectangle;
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 
 /**
  *
@@ -230,10 +224,6 @@ public class Poder {
         return new Rectangle(x + 3, y + 3, 44, 44);
     }
 
-    public void setPoder(int poder) {
-        this.poder = poder;
-    }
-
     public void setX(int x) {
         this.x = x;
     }
@@ -260,10 +250,6 @@ public class Poder {
 
     public boolean isEstado() {
         return estado;
-    }
-
-    public Bloque getBloque() {
-        return bloque;
     }
 
 }

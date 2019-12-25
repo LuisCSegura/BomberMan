@@ -140,8 +140,6 @@ public class Bomba {
 
                 }
                 bomber.setPuntaje(bomber.getPuntaje() + (puntosEnem * cantEnem));
-                cantEnem = 0;
-                puntosEnem = 0;
         }
     }
 
@@ -165,7 +163,7 @@ public class Bomba {
 
             for (int i = 0; i < rango; i++) {
                 if (arriba) {
-                    if (!vaAChocar(x, ySup, bloques, enemigos, bomber)) {
+                    if (vaChocar(x, ySup, bloques, enemigos, bomber)) {
                         if (i < rango - 1) {
                             pintarBrazos(g, 0, ySup, yInf, xDer, xIzq);
                         } else {
@@ -177,7 +175,7 @@ public class Bomba {
                     }
                 }
                 if (abajo) {
-                    if (!vaAChocar(x, yInf, bloques, enemigos, bomber)) {
+                    if (vaChocar(x, yInf, bloques, enemigos, bomber)) {
                         if (i < rango - 1) {
                             pintarBrazos(g, 1, ySup, yInf, xDer, xIzq);
                         } else {
@@ -189,7 +187,7 @@ public class Bomba {
                 }
 
                 if (izquierda) {
-                    if (!vaAChocar(xIzq, y, bloques, enemigos, bomber)) {
+                    if (vaChocar(xIzq, y, bloques, enemigos, bomber)) {
                         if (i < rango - 1) {
                             pintarBrazos(g, 2, ySup, yInf, xDer, xIzq);
                         } else {
@@ -201,7 +199,7 @@ public class Bomba {
                     }
                 }
                 if (derecha) {
-                    if (!vaAChocar(xDer, y, bloques, enemigos, bomber)) {
+                    if (vaChocar(xDer, y, bloques, enemigos, bomber)) {
                         if (i < rango - 1) {
                             pintarBrazos(g, 3, ySup, yInf, xDer, xIzq);
                         } else {
@@ -329,7 +327,7 @@ public class Bomba {
                 g.fillRect(x + 46, y + 17, 2, 16);
                 g.fillRect(x + 41, y + 18, 3, 15);
                 g.fillRect(x + 17, y + 46, 16, 4);
-            } else if (contTiempo < 350) {
+            } else {
                 g.setColor(new Color(216, 40, 0));
                 g.fillRoundRect(x, y, 50, 50, 5, 5);
                 g.setColor(new Color(252, 116, 96));
@@ -385,7 +383,7 @@ public class Bomba {
                     g.setColor(new Color(252, 188, 176));
                     distVertical(g, 50, 11, 20, ySup, 10, 8);
                     g.fillRect(x + 22, ySup, 6, 50);
-                } else if (contTiempo < 350) {
+                } else {
                     g.setColor(new Color(216, 40, 0));
                     distVertical(g, 50, 10, 1, ySup, 48, 7);
                     g.fillRect(x + 3, ySup, 44, 50);
@@ -427,7 +425,7 @@ public class Bomba {
                     g.setColor(new Color(252, 188, 176));
                     distVertical(g, 50, 11, 20, yInf, 10, 8);
                     g.fillRect(x + 22, yInf, 6, 50);
-                } else if (contTiempo < 350) {
+                } else {
                     g.setColor(new Color(216, 40, 0));
                     distVertical(g, 50, 10, 1, yInf, 48, 7);
                     g.fillRect(x + 3, yInf, 44, 50);
@@ -470,7 +468,7 @@ public class Bomba {
                     distHorizontal(g, 50, 11, 20, xIzq, 10, 8);
                     g.fillRect(xIzq, y + 22, 50, 6);
 
-                } else if (contTiempo < 350) {
+                } else {
                     g.setColor(new Color(216, 40, 0));
                     distHorizontal(g, 50, 10, 1, xIzq, 48, 7);
                     g.fillRect(xIzq, y + 3, 50, 44);
@@ -512,7 +510,7 @@ public class Bomba {
                     g.setColor(new Color(252, 188, 176));
                     distHorizontal(g, 50, 11, 20, xDer, 10, 8);
                     g.fillRect(xDer, y + 22, 50, 6);
-                } else if (contTiempo < 350) {
+                } else {
                     g.setColor(new Color(216, 40, 0));
                     distHorizontal(g, 50, 10, 1, xDer, 48, 7);
                     g.fillRect(xDer, y + 3, 50, 44);
@@ -601,7 +599,7 @@ public class Bomba {
                     distExtremoVertical(g, 10, 11, 20, 20, ySup, 8);
                     g.fillRect(x + 22, ySup + 22, 6, 28);
 
-                } else if (contTiempo < 350) {
+                } else {
                     g.setColor(new Color(216, 40, 0));
                     distVertical(g, 48, 10, 1, ySup + 2, 48, 7);
                     distExtremoVertical(g, 48, 10, 1, 1, ySup, 7);
@@ -654,7 +652,7 @@ public class Bomba {
                     distVertical(g, 30, 11, 20, yInf, 10, 8);
                     distExtremoVertical(g, 10, 11, 20, 27, yInf, 8);
                     g.fillRect(x + 22, yInf, 6, 30);
-                } else if (contTiempo < 350) {
+                } else {
                     g.setColor(new Color(216, 40, 0));
                     distVertical(g, 48, 10, 1, yInf, 48, 7);
                     distExtremoVertical(g, 48, 10, 1, 46, yInf, 7);
@@ -708,7 +706,7 @@ public class Bomba {
                     distExtremoHorizontal(g, 10, 11, 20, 20, xIzq, 8);
                     g.fillRect(xIzq + 22, y + 22, 28, 6);
 
-                } else if (contTiempo < 350) {
+                } else {
                     g.setColor(new Color(216, 40, 0));
                     distHorizontal(g, 48, 10, 1, xIzq + 2, 48, 7);
                     distExtremoHorizontal(g, 48, 10, 1, 0, xIzq, 7);
@@ -761,7 +759,7 @@ public class Bomba {
                     distHorizontal(g, 30, 11, 20, xDer, 10, 8);
                     distExtremoHorizontal(g, 10, 11, 27, 20, xDer, 8);
                     g.fillRect(xDer, y + 22, 30, 6);
-                } else if (contTiempo < 350) {
+                } else {
                     g.setColor(new Color(216, 40, 0));
                     distHorizontal(g, 48, 10, 1, xDer, 48, 7);
                     distExtremoHorizontal(g, 48, 10, 46, 1, xDer, 7);
@@ -811,17 +809,17 @@ public class Bomba {
      * @param bomber bomberman
      * @return true si va achocar un un bloque, false si no
      */
-    private boolean vaAChocar(int x, int y, Bloque[][] bloques, LinkedList<Enemigo> enemigos, Bomberman bomber) {
-        for (int i = 0; i < bloques.length; i++) {
-            for (int j = 0; j < bloques[i].length; j++) {
-                if (bloques[i][j].getTipo() == 3 && bomber.getBonds().intersects(bloques[i][j].getBonds())) {
+    private boolean vaChocar(int x, int y, Bloque[][] bloques, LinkedList<Enemigo> enemigos, Bomberman bomber) {
+        for (Bloque[] bloque : bloques) {
+            for (Bloque value : bloque) {
+                if (value.getTipo() == 3 && bomber.getBonds().intersects(value.getBonds())) {
                     bomber.setConVida(false);
                 }
-                if (bloques[i][j].getTipo() != 0 && getBones(x, y).intersects(bloques[i][j].getBonds())) {
-                    if (bloques[i][j].getTipo() == 2) {
-                        bloques[i][j].setTipo(3);
+                if (value.getTipo() != 0 && getBones(x, y).intersects(value.getBonds())) {
+                    if (value.getTipo() == 2) {
+                        value.setTipo(3);
                     }
-                    return true;
+                    return false;
                 }
             }
         }
@@ -833,7 +831,7 @@ public class Bomba {
         if ((getBones(x, y).intersects(bomber.getBonds())) || (getBonesBomb().intersects(bomber.getBonds()))) {
                 bomber.setConVida(false);
         }
-        return false;
+        return true;
     }
 
     public void tangForBomber(Bomberman bomber) {
@@ -876,16 +874,8 @@ public class Bomba {
         this.rango = rango;
     }
 
-    public void setTiempo(int tiempo) {
-        this.tiempo = tiempo;
-    }
-
     public void setEstado(int estado) {
         this.estado = estado;
-    }
-
-    public void setTiempoDetonacion(int tiempoDetonacion) {
-        this.tiempoDetonacion = tiempoDetonacion;
     }
 
     public int getX() {
@@ -900,40 +890,8 @@ public class Bomba {
         return rango;
     }
 
-    public int getTiempo() {
-        return tiempo;
-    }
-
     public int getEstado() {
         return estado;
-    }
-
-    public int getTiempoDetonacion() {
-        return tiempoDetonacion;
-    }
-
-    public int getContTiempo() {
-        return contTiempo;
-    }
-
-    public int getPasos() {
-        return pasos;
-    }
-
-    public int getContPasos() {
-        return contPasos;
-    }
-
-    public void setContTiempo(int contTiempo) {
-        this.contTiempo = contTiempo;
-    }
-
-    public void setPasos(int pasos) {
-        this.pasos = pasos;
-    }
-
-    public void setContPasos(int contPasos) {
-        this.contPasos = contPasos;
     }
 
     public boolean isIntangibleBomber() {
@@ -942,14 +900,6 @@ public class Bomba {
 
     public boolean isIntangibleEnemies() {
         return intangibleEnemies;
-    }
-
-    public void setIntangibleBomber(boolean intangibleBomber) {
-        this.intangibleBomber = intangibleBomber;
-    }
-
-    public void setIntangibleEnemies(boolean intangibleEnemies) {
-        this.intangibleEnemies = intangibleEnemies;
     }
 
 }
