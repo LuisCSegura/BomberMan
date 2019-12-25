@@ -327,7 +327,7 @@ public class Stage {
 //        pintar estado
         if (estado == 0) {
             g.setColor(Color.BLACK);
-            g.fillRect(0, y + 0, 850 + 2 * x, 850);
+            g.fillRect(x, y, 800, 750);
             g.setFont(fuenteSubtitulo);
             g.setColor(Color.GRAY);
             g.drawString("GAME OVER", x + 283, y + 383);
@@ -338,7 +338,7 @@ public class Stage {
             bomber.reStart();
         } else if (estado == 2) {
             g.setColor(Color.BLACK);
-            g.fillRect(0, y + 0, 850 + 2 * x, 850);
+            g.fillRect(x, y, 800, 750);
             g.setFont(fuenteSubtitulo);
             g.setColor(Color.GRAY);
             g.drawString("CONGRATULATIONS ", x + 203, y + 353);
@@ -355,7 +355,7 @@ public class Stage {
             if (contSubNivel < 1000) {
                 corriendo = false;
                 g.setColor(Color.BLACK);
-                g.fillRect(0, y + 0, 850 + 2 * x, 850);
+                g.fillRect(x, y, 800, 750);
                 g.setFont(fuenteSubtitulo);
                 g.setColor(Color.GRAY);
                 g.drawString("STAGE   " + nivel, x + 310, y + 383);
@@ -369,6 +369,10 @@ public class Stage {
                 estado = 1;
                 corriendo = true;
             }
+        }else if(!corriendo){
+            g.setColor(Color.BLACK);
+            g.fillRect(x, y, 800, 750);
+
         }
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, x, y * 2 + 750);
@@ -405,7 +409,6 @@ public class Stage {
 
             }
 //        agarrar poder
-
             agarrarPoder();
 //        subir de nivel
             if (!puerta.isEstado() && !hayEnemigos()) {

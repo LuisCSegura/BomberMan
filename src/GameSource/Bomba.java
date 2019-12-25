@@ -790,7 +790,7 @@ public class Bomba {
      * @return rectangulo
      */
     public Rectangle getBones(int x, int y) {
-        return new Rectangle(x, y, 50, 50);
+        return new Rectangle(x+3, y+3, 44, 44);
     }
 
     /**
