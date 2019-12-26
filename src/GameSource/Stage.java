@@ -405,7 +405,7 @@ public class Stage {
 //        agarrar poder
             agarrarPoder();
 //        subir de nivel
-            if (!puerta.isEstado() && !hayEnemigos()) {
+            if (!puerta.isEstado() && !hayEnemigos() && puerta.bloqueDestruido(bloques)) {
                 puerta.setEstado(true);
             }
             if (cruzoPuerta()) {

@@ -17,7 +17,6 @@ public class Puerta {
     private int x;
     private int y;
     private boolean estado;
-
     public Puerta(int x, int y) {
         this.x = x;
         this.y = y;
@@ -47,7 +46,17 @@ public class Puerta {
         g.setColor(Color.BLACK);
         g.fillRect(x+14, y+18, 3, 14);
         g.fillRect(x+32, y+18, 3, 14);
-    } 
+    }
+    public Boolean bloqueDestruido(Bloque[][] bloques){
+        for(Bloque[] bloks:bloques){
+            for(Bloque bloque:bloks){
+                if(bloque.getX()==x && bloque.getY()==y){
+                    return bloque.getTipo()==0;
+                }
+            }
+        }
+        return false;
+    }
     /**
      * obtiene un rectangulo en la poscicion de la puerta
      * @return rectangulo
