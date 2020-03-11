@@ -364,8 +364,15 @@ public class Stage {
                 corriendo = true;
             }
         }else if(!corriendo){
-            g.setColor(new Color(0,0,0,200));
-            g.fillRect(x, y, 800, 750);
+//            g.setColor(new Color(0, 0, 0, 200));
+//            g.fillRect(x, y, 800, 750);
+//            g.setFont(fuenteSubtitulo.deriveFont(Font.PLAIN, 85));
+//            g.setColor(Color.GRAY);
+//            g.drawString("PAUSED", x + 203, y + 383);
+//            g.drawString("PAUSED", x + 200, y + 383);
+//            g.drawString("PAUSED", x + 203, y + 380);
+//            g.setColor(Color.white);
+//            g.drawString("PAUSED", x + 200, y + 380);
 
         }
         g.setColor(Color.BLACK);
@@ -784,7 +791,7 @@ public class Stage {
         return estado;
     }
 
-//    SETTERS
+    //    SETTERS
 //    ----------------------------------------------------------------------------------------------------------   
     public void setTiempo(int tiempo) {
         this.tiempo = tiempo;

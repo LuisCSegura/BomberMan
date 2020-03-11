@@ -16,7 +16,7 @@ public class Main {
      */
     public static void main(String[] args) throws InterruptedException {
         JFrame frm = new JFrame("BomberMan");
-        PanelBomberman panel = new PanelBomberman();
+        PanelBomberman panel = new PanelBomberman(frm);
         frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frm.add(panel);
         frm.pack();

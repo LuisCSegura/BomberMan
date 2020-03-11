@@ -11,7 +11,6 @@ import java.awt.Rectangle;
 import java.util.LinkedList;
 
 /**
- *
  * @author LuisKa
  */
 public class Bomberman {
@@ -22,11 +21,11 @@ public class Bomberman {
     private int velConst;
     private int velVar;
     private int puntaje;
-    private int vidas; 
+    private int vidas;
     private boolean conVida;
     private int pasos;
     private int contPasos;
-//    poderes
+    //    poderes
     private boolean detonator;
     private boolean wallPass;
     private boolean bombPass;
@@ -46,7 +45,7 @@ public class Bomberman {
         detonator = false;
         wallPass = false;
         bombPass = false;
-        speed=false;
+        speed = false;
         pasos = 0;
         contPasos = 0;
         contTiempoMuerte = 0;
@@ -616,9 +615,9 @@ public class Bomberman {
                 g.fillRect(x + 31, y + 4, 3, 3);
                 g.setColor(new Color(60, 188, 252));
                 int[] xsCuerpo = {x + 34, x + 46, x + 46, x + 35, x + 15, x + 4, x + 4, x + 16, x + 15,
-                    x + 25, x + 34, x + 36, x + 27, x + 38, x + 36, x + 30, x + 30, x + 28, x + 28, x + 15, x + 15, x + 21, x + 21, x + 12, x + 15, x + 16};
+                        x + 25, x + 34, x + 36, x + 27, x + 38, x + 36, x + 30, x + 30, x + 28, x + 28, x + 15, x + 15, x + 21, x + 21, x + 12, x + 15, x + 16};
                 int[] ysCuerpo = {y + 15, y + 26, y + 35, y + 49, y + 49, y + 35, y + 26, y + 15, y + 23,
-                    y + 29, y + 18, y + 20, y + 31, y + 38, y + 40, y + 36, y + 42, y + 42, y + 35, y + 38, y + 35, y + 35, y + 31, y + 25, y + 23, y + 15};
+                        y + 29, y + 18, y + 20, y + 31, y + 38, y + 40, y + 36, y + 42, y + 42, y + 35, y + 38, y + 35, y + 35, y + 31, y + 25, y + 23, y + 15};
                 g.fillPolygon(xsCuerpo, ysCuerpo, xsCuerpo.length);
                 g.setColor(new Color(252, 116, 96));
                 g.fillOval(x + 6, y + 17, 7, 7);
@@ -655,9 +654,9 @@ public class Bomberman {
                 g.fillRect(x + 31, y + 4, 3, 3);
                 g.setColor(new Color(60, 188, 252));
                 int[] xsCuerpo = {x + 34, x + 43, x + 43, x + 35, x + 15, x + 7, x + 7, x + 16, x + 16, x + 22,
-                    x + 26, x + 36, x + 29, x + 38, x + 32, x + 26, x + 15, x + 13, x + 13, x + 20, x + 12, x + 16, x + 16};
+                        x + 26, x + 36, x + 29, x + 38, x + 32, x + 26, x + 15, x + 13, x + 13, x + 20, x + 12, x + 16, x + 16};
                 int[] ysCuerpo = {y + 13, y + 28, y + 37, y + 49, y + 49, y + 37, y + 28, y + 13, y + 20, y + 26,
-                    y + 19, y + 19, y + 26, y + 38, y + 42, y + 35, y + 43, y + 40, y + 33, y + 32, y + 25, y + 20, y + 13};
+                        y + 19, y + 19, y + 26, y + 38, y + 42, y + 35, y + 43, y + 40, y + 33, y + 32, y + 25, y + 20, y + 13};
                 g.fillPolygon(xsCuerpo, ysCuerpo, xsCuerpo.length);
                 g.setColor(new Color(252, 116, 96));
                 g.fillOval(x + 6, y + 17, 7, 7);
@@ -861,7 +860,7 @@ public class Bomberman {
         conVida = true;
 //        poderes
         detonator = false;
-        speed=false;
+        speed = false;
         pasos = 0;
         contPasos = 0;
         contTiempoMuerte = 0;
@@ -939,8 +938,8 @@ public class Bomberman {
 
     public void cambiarPasos() {
         int velPasos = 70;
-        if(speed){
-            velPasos+=60;
+        if (speed) {
+            velPasos += 60;
         }
         if (direccion == 0 || direccion == 1) {
             velPasos += 20;
@@ -1023,7 +1022,7 @@ public class Bomberman {
     public void setSpeed(boolean speed) {
         this.speed = speed;
     }
-    
+
 
     public int getY() {
         return y;
