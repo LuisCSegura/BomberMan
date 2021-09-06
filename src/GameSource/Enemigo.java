@@ -710,8 +710,8 @@ public class Enemigo {
                 }
                 break;
         }
-                
-        
+
+
         cambiarMirada();
         if (estado == 2) {
             contMuerte += 10;
@@ -761,8 +761,8 @@ public class Enemigo {
     /**
      * verifica si va a chocar con un bloque, una bomba, o el bomberman
      *
-     * @param bloques matriz d ebloques del nivel
-     * @param bombas lista de bombas ene el nivel
+     * @param bloques matriz de bloques del nivel
+     * @param bombas lista de bombas en el nivel
      * @param bomber bomberman
      * @return true si va achocar, de lo contrario false
      */
