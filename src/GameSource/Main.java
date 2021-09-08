@@ -6,7 +6,7 @@
 package GameSource;
 import javax.swing.JFrame;
 /**
- *
+ * Executes all the code in a cycle
  * @author LuisKa
  */
 public class Main {
