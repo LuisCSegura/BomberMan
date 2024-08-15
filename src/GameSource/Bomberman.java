@@ -25,7 +25,7 @@ public class Bomberman {
     private boolean conVida;
     private int pasos;
     private int contPasos;
-    //    poderes
+    // poderes
     private boolean detonator;
     private boolean wallPass;
     private boolean bombPass;
@@ -41,7 +41,7 @@ public class Bomberman {
         puntaje = 0;
         vidas = 2;
         conVida = true;
-//        poderes
+        // poderes
         detonator = false;
         wallPass = false;
         bombPass = false;
@@ -63,7 +63,7 @@ public class Bomberman {
         if (conVida) {
             switch (direccion) {
                 case 0: {
-                    //            cabeza
+                    // cabeza
                     g.fillRect(x + 13, y + 5, 24, 10);
                     g.fillRect(x + 17, y + 1, 16, 18);
                     g.fillRect(x + 16, y + 2, 18, 16);
@@ -74,32 +74,32 @@ public class Bomberman {
                     g.setColor(Color.BLACK);
                     g.fillRect(x + 20, y + 7, 3, 6);
                     g.fillRect(x + 28, y + 7, 3, 6);
-                    //            manos
+                    // manos
                     g.setColor(new Color(252, 252, 252));
                     if (pasos == 0 || pasos == 2) {
-                        int[] xs = {x + 36, x + 40, x + 40, x + 36, x + 35, x + 15, x + 14, x + 10, x + 10, x + 14};
-                        int[] ys = {y + 22, y + 26, y + 31, y + 31, y + 30, y + 30, y + 31, y + 31, y + 26, y + 22};
+                        int[] xs = { x + 36, x + 40, x + 40, x + 36, x + 35, x + 15, x + 14, x + 10, x + 10, x + 14 };
+                        int[] ys = { y + 22, y + 26, y + 31, y + 31, y + 30, y + 30, y + 31, y + 31, y + 26, y + 22 };
                         g.fillPolygon(xs, ys, xs.length);
                         g.setColor(new Color(252, 116, 96));
                         g.fillOval(x + 6, y + 27, 7, 7);
                         g.fillOval(x + 36, y + 27, 7, 7);
                     } else if (pasos == 1) {
-                        int[] xs = {x + 36, x + 41, x + 41, x + 38, x + 35, x + 15, x + 12, x + 9, x + 9, x + 14};
-                        int[] ys = {y + 22, y + 25, y + 29, y + 29, y + 29, y + 31, y + 34, y + 34, y + 30, y + 22};
+                        int[] xs = { x + 36, x + 41, x + 41, x + 38, x + 35, x + 15, x + 12, x + 9, x + 9, x + 14 };
+                        int[] ys = { y + 22, y + 25, y + 29, y + 29, y + 29, y + 31, y + 34, y + 34, y + 30, y + 22 };
                         g.fillPolygon(xs, ys, xs.length);
                         g.setColor(new Color(252, 116, 96));
                         g.fillOval(x + 7, y + 31, 7, 7);
                         g.fillOval(x + 35, y + 22, 7, 7);
                     } else if (pasos == 3) {
-                        int[] xs = {x + 36, x + 41, x + 41, x + 38, x + 35, x + 15, x + 12, x + 9, x + 9, x + 14};
-                        int[] ys = {y + 22, y + 30, y + 34, y + 34, y + 31, y + 29, y + 29, y + 29, y + 25, y + 22};
+                        int[] xs = { x + 36, x + 41, x + 41, x + 38, x + 35, x + 15, x + 12, x + 9, x + 9, x + 14 };
+                        int[] ys = { y + 22, y + 30, y + 34, y + 34, y + 31, y + 29, y + 29, y + 29, y + 25, y + 22 };
                         g.fillPolygon(xs, ys, xs.length);
                         g.setColor(new Color(252, 116, 96));
                         g.fillOval(x + 7, y + 22, 7, 7);
                         g.fillOval(x + 36, y + 31, 7, 7);
                     }
 
-                    //            torso
+                    // torso
                     g.setColor(new Color(60, 188, 252));
                     if (pasos == 0 || pasos == 2) {
                         g.fillRect(x + 19, y + 19, 12, 10);
@@ -108,18 +108,18 @@ public class Bomberman {
                         g.fillRect(x + 16, y + 25, 18, 15);
                     } else if (pasos == 1) {
                         g.fillRect(x + 19, y + 19, 12, 10);
-                        int[] xsTorso = {x + 19, x + 31, x + 34, x + 34, x + 16, x + 16};
-                        int[] ysTorso = {y + 22, y + 22, y + 25, y + 40, y + 40, y + 22};
+                        int[] xsTorso = { x + 19, x + 31, x + 34, x + 34, x + 16, x + 16 };
+                        int[] ysTorso = { y + 22, y + 22, y + 25, y + 40, y + 40, y + 22 };
                         g.fillPolygon(xsTorso, ysTorso, xsTorso.length);
 
                     } else if (pasos == 3) {
                         g.fillRect(x + 19, y + 19, 12, 10);
-                        int[] xsTorso = {x + 19, x + 31, x + 34, x + 34, x + 16, x + 16};
-                        int[] ysTorso = {y + 22, y + 22, y + 22, y + 40, y + 40, y + 25};
+                        int[] xsTorso = { x + 19, x + 31, x + 34, x + 34, x + 16, x + 16 };
+                        int[] ysTorso = { y + 22, y + 22, y + 22, y + 40, y + 40, y + 25 };
                         g.fillPolygon(xsTorso, ysTorso, xsTorso.length);
                     }
 
-                    //            pies
+                    // pies
                     g.setColor(new Color(252, 252, 252));
                     if (pasos == 0 || pasos == 2) {
 
@@ -169,7 +169,7 @@ public class Bomberman {
                     break;
                 }
                 case 1: {
-                    //            cabeza
+                    // cabeza
                     g.setColor(new Color(252, 252, 252));
                     g.fillRect(x + 13, y + 5, 24, 10);
                     g.fillRect(x + 17, y + 1, 16, 18);
@@ -180,15 +180,15 @@ public class Bomberman {
                     g.fillRect(x + 22, y + 5, 6, 3);
                     g.fillRect(x + 18, y + 7, 4, 3);
 
-                    //            manos
+                    // manos
                     g.setColor(new Color(252, 116, 96));
                     if (pasos == 0 || pasos == 2) {
 
                         g.fillOval(x + 6, y + 27, 7, 7);
                         g.fillOval(x + 36, y + 27, 7, 7);
                         g.setColor(new Color(252, 252, 252));
-                        int[] xs = {x + 36, x + 40, x + 40, x + 36, x + 35, x + 15, x + 14, x + 10, x + 10, x + 14};
-                        int[] ys = {y + 22, y + 26, y + 31, y + 31, y + 30, y + 30, y + 31, y + 31, y + 26, y + 22};
+                        int[] xs = { x + 36, x + 40, x + 40, x + 36, x + 35, x + 15, x + 14, x + 10, x + 10, x + 14 };
+                        int[] ys = { y + 22, y + 26, y + 31, y + 31, y + 30, y + 30, y + 31, y + 31, y + 26, y + 22 };
                         g.fillPolygon(xs, ys, xs.length);
 
                     } else if (pasos == 1) {
@@ -196,8 +196,8 @@ public class Bomberman {
                         g.fillOval(x + 7, y + 31, 7, 7);
                         g.fillOval(x + 35, y + 22, 7, 7);
                         g.setColor(new Color(252, 252, 252));
-                        int[] xs = {x + 36, x + 41, x + 41, x + 38, x + 35, x + 15, x + 12, x + 9, x + 9, x + 14};
-                        int[] ys = {y + 22, y + 25, y + 29, y + 29, y + 29, y + 31, y + 34, y + 34, y + 30, y + 22};
+                        int[] xs = { x + 36, x + 41, x + 41, x + 38, x + 35, x + 15, x + 12, x + 9, x + 9, x + 14 };
+                        int[] ys = { y + 22, y + 25, y + 29, y + 29, y + 29, y + 31, y + 34, y + 34, y + 30, y + 22 };
                         g.fillPolygon(xs, ys, xs.length);
 
                     } else if (pasos == 3) {
@@ -205,13 +205,13 @@ public class Bomberman {
                         g.fillOval(x + 7, y + 22, 7, 7);
                         g.fillOval(x + 36, y + 31, 7, 7);
                         g.setColor(new Color(252, 252, 252));
-                        int[] xs = {x + 36, x + 41, x + 41, x + 38, x + 35, x + 15, x + 12, x + 9, x + 9, x + 14};
-                        int[] ys = {y + 22, y + 30, y + 34, y + 34, y + 31, y + 29, y + 29, y + 29, y + 25, y + 22};
+                        int[] xs = { x + 36, x + 41, x + 41, x + 38, x + 35, x + 15, x + 12, x + 9, x + 9, x + 14 };
+                        int[] ys = { y + 22, y + 30, y + 34, y + 34, y + 31, y + 29, y + 29, y + 29, y + 25, y + 22 };
                         g.fillPolygon(xs, ys, xs.length);
 
                     }
 
-                    //            torso
+                    // torso
                     g.setColor(new Color(60, 188, 252));
                     g.fillRect(x + 19, y + 19, 12, 10);
                     g.fillRect(x + 16, y + 22, 18, 18);
@@ -220,7 +220,7 @@ public class Bomberman {
                     g.setColor(new Color(252, 116, 96));
                     g.fillRect(x + 22, y + 27, 6, 4);
                     g.fillRect(x + 21, y + 28, 8, 2);
-                    //            pies
+                    // pies
                     g.setColor(new Color(252, 252, 252));
                     if (pasos == 0 || pasos == 2) {
 
@@ -286,7 +286,7 @@ public class Bomberman {
                         g.fillOval(x + 37, y + 26, 7, 7);
                     }
 
-                    //            torso
+                    // torso
                     if (pasos == 0 || pasos == 2) {
                         g.setColor(new Color(60, 188, 252));
                         g.fillRect(x + 16, y + 10, 18, 28);
@@ -294,27 +294,28 @@ public class Bomberman {
                         g.fillOval(x + 29, y + 21, 8, 17);
                     } else if (pasos == 1) {
                         g.setColor(new Color(60, 188, 252));
-                        int[] xsTorso = {x + 16, x + 32, x + 43, x + 26};
-                        int[] ysTorso = {y + 26, y + 15, y + 37, y + 44};
+                        int[] xsTorso = { x + 16, x + 32, x + 43, x + 26 };
+                        int[] ysTorso = { y + 26, y + 15, y + 37, y + 44 };
                         g.fillPolygon(xsTorso, ysTorso, xsTorso.length);
                     } else if (pasos == 3) {
                         g.setColor(new Color(60, 188, 252));
-                        int[] xsTorso = {x + 11, x + 35, x + 35};
-                        int[] ysTorso = {y + 14, y + 10, y + 39};
+                        int[] xsTorso = { x + 11, x + 35, x + 35 };
+                        int[] ysTorso = { y + 14, y + 10, y + 39 };
                         g.fillPolygon(xsTorso, ysTorso, xsTorso.length);
                         g.fillRoundRect(x + 19, y + 23, 19, 18, 3, 3);
                         g.fillOval(x + 15, y + 34, 10, 10);
                     }
 
-                    //            cabeza
-                    if (pasos == 0 || pasos == 2) {
+                    // cabeza
+                    if (pasos == 0 || pasos == 2 || pasos == 3) {
                         g.setColor(new Color(252, 252, 252));
-                        int[] xsCabeza = {x + 11, x + 15, x + 32, x + 39, x + 39, x + 34, x + 33, x + 26, x + 15, x + 11};
-                        int[] ysCabeza = {y + 5, y + 1, y + 1, y + 8, y + 11, y + 16, y + 16, y + 19, y + 19, y + 14};
+                        int[] xsCabeza = { x + 11, x + 15, x + 32, x + 39, x + 39, x + 34, x + 33, x + 26, x + 15,
+                                x + 11 };
+                        int[] ysCabeza = { y + 5, y + 1, y + 1, y + 8, y + 11, y + 16, y + 16, y + 19, y + 19, y + 14 };
                         g.fillPolygon(xsCabeza, ysCabeza, xsCabeza.length);
                         g.setColor(new Color(252, 116, 96));
-                        int[] xsojo = {x + 11, x + 28, x + 30, x + 25, x + 11};
-                        int[] ysojo = {y + 7, y + 7, y + 8, y + 13, y + 13};
+                        int[] xsojo = { x + 11, x + 28, x + 30, x + 25, x + 11 };
+                        int[] ysojo = { y + 7, y + 7, y + 9, y + 13, y + 13 };
                         g.fillPolygon(xsojo, ysojo, xsojo.length);
                         g.setColor(Color.BLACK);
                         g.fillRect(x + 14, y + 7, 3, 6);
@@ -325,12 +326,14 @@ public class Bomberman {
                         g.fillRect(x + 37, y + 1, 3, 2);
                     } else if (pasos == 1) {
                         g.setColor(new Color(252, 252, 252));
-                        int[] xsCabeza = {x + 10, x + 14, x + 31, x + 38, x + 38, x + 33, x + 32, x + 25, x + 14, x + 10};
-                        int[] ysCabeza = {y + 8, y + 4, y + 4, y + 11, y + 14, y + 19, y + 19, y + 22, y + 22, y + 17};
+                        int[] xsCabeza = { x + 10, x + 14, x + 31, x + 38, x + 38, x + 33, x + 32, x + 25, x + 14,
+                                x + 10 };
+                        int[] ysCabeza = { y + 8, y + 4, y + 4, y + 11, y + 14, y + 19, y + 19, y + 22, y + 22,
+                                y + 17 };
                         g.fillPolygon(xsCabeza, ysCabeza, xsCabeza.length);
                         g.setColor(new Color(252, 116, 96));
-                        int[] xsojo = {x + 10, x + 27, x + 29, x + 24, x + 10};
-                        int[] ysojo = {y + 10, y + 10, y + 11, y + 16, y + 16};
+                        int[] xsojo = { x + 10, x + 27, x + 29, x + 24, x + 10 };
+                        int[] ysojo = { y + 10, y + 10, y + 12, y + 16, y + 16 };
                         g.fillPolygon(xsojo, ysojo, xsojo.length);
                         g.setColor(Color.BLACK);
                         g.fillRect(x + 13, y + 10, 3, 6);
@@ -340,24 +343,8 @@ public class Bomberman {
                         g.fillRect(x + 35, y + 3, 2, 2);
                         g.setColor(new Color(252, 116, 96));
                         g.fillRect(x + 36, y + 1, 2, 2);
-                    } else if (pasos == 3) {
-                        g.setColor(new Color(252, 252, 252));
-                        int[] xsCabeza = {x + 11, x + 15, x + 32, x + 39, x + 39, x + 31, x + 15, x + 11};
-                        int[] ysCabeza = {y + 5, y + 1, y + 1, y + 8, y + 11, y + 19, y + 19, y + 14};
-                        g.fillPolygon(xsCabeza, ysCabeza, xsCabeza.length);
-                        g.setColor(new Color(252, 116, 96));
-                        int[] xsojo = {x + 11, x + 28, x + 30, x + 25, x + 11};
-                        int[] ysojo = {y + 7, y + 7, y + 8, y + 13, y + 13};
-                        g.fillPolygon(xsojo, ysojo, xsojo.length);
-                        g.setColor(Color.BLACK);
-                        g.fillRect(x + 14, y + 7, 3, 6);
-                        g.fillRect(x + 20, y + 7, 3, 6);
-                        g.setColor(new Color(252, 252, 252));
-                        g.fillRect(x + 35, y + 1, 2, 2);
-                        g.setColor(new Color(252, 116, 96));
-                        g.fillRect(x + 37, y + 1, 3, 2);
                     }
-                    //       pies
+                    // pies
                     if (pasos == 0 || pasos == 2) {
                         g.setColor(new Color(252, 252, 252));
                         g.fillRect(x + 28, y + 38, 5, 7);
@@ -389,12 +376,12 @@ public class Bomberman {
                         g.fillRect(x + 11, y + 36, 4, 8);
                         g.fillRect(x + 11, y + 34, 2, 10);
                         g.fillRect(x + 32, y + 47, 4, 2);
-                        int[] xsBota = {x + 35, x + 35, x + 36, x + 40, x + 43};
-                        int[] ysBota = {y + 49, y + 46, y + 43, y + 39, y + 42};
+                        int[] xsBota = { x + 35, x + 35, x + 36, x + 40, x + 43 };
+                        int[] ysBota = { y + 49, y + 46, y + 43, y + 39, y + 42 };
                         g.fillPolygon(xsBota, ysBota, xsBota.length);
                     }
 
-//                        manos
+                    // manos
                     if (pasos == 0 || pasos == 2) {
                         g.setColor(new Color(252, 252, 252));
                         g.fillArc(x + 20, y + 22, 17, 14, 270, 200);
@@ -405,8 +392,8 @@ public class Bomberman {
                     } else if (pasos == 1) {
                         g.setColor(new Color(252, 252, 252));
                         g.fillOval(x + 28, y + 21, 7, 7);
-                        int[] xsBrazos = {x + 29, x + 36, x + 43, x + 37};
-                        int[] ysBrazos = {y + 26, y + 25, y + 36, y + 36};
+                        int[] xsBrazos = { x + 29, x + 36, x + 43, x + 37 };
+                        int[] ysBrazos = { y + 26, y + 25, y + 36, y + 36 };
                         g.fillPolygon(xsBrazos, ysBrazos, xsBrazos.length);
                         g.setColor(new Color(252, 116, 96));
                         g.fillOval(x + 36, y + 31, 7, 7);
@@ -437,7 +424,7 @@ public class Bomberman {
                         g.fillOval(x + 6, y + 26, 7, 7);
                     }
 
-                    //            torso
+                    // torso
                     if (pasos == 0 || pasos == 2) {
                         g.setColor(new Color(60, 188, 252));
                         g.fillRect(x + 16, y + 10, 18, 28);
@@ -445,27 +432,28 @@ public class Bomberman {
                         g.fillRect(x + 20, y + 37, 6, 3);
                     } else if (pasos == 1) {
                         g.setColor(new Color(60, 188, 252));
-                        int[] xsTorso = {x + 34, x + 18, x + 7, x + 24};
-                        int[] ysTorso = {y + 26, y + 15, y + 37, y + 44};
+                        int[] xsTorso = { x + 34, x + 18, x + 7, x + 24 };
+                        int[] ysTorso = { y + 26, y + 15, y + 37, y + 44 };
                         g.fillPolygon(xsTorso, ysTorso, xsTorso.length);
                     } else if (pasos == 3) {
                         g.setColor(new Color(60, 188, 252));
-                        int[] xsTorso = {x + 39, x + 15, x + 15};
-                        int[] ysTorso = {y + 14, y + 10, y + 39};
+                        int[] xsTorso = { x + 39, x + 15, x + 15 };
+                        int[] ysTorso = { y + 14, y + 10, y + 39 };
                         g.fillPolygon(xsTorso, ysTorso, xsTorso.length);
                         g.fillRoundRect(x + 12, y + 23, 19, 18, 3, 3);
                         g.fillOval(x + 25, y + 34, 10, 10);
                     }
 
-                    //            cabeza
-                    if (pasos == 0 || pasos == 2) {
+                    // cabeza
+                    if (pasos == 0 || pasos == 2 || pasos == 3) {
                         g.setColor(new Color(252, 252, 252));
-                        int[] xsCabeza = {x + 39, x + 35, x + 18, x + 11, x + 11, x + 16, x + 17, x + 24, x + 34, x + 39};
-                        int[] ysCabeza = {y + 5, y + 1, y + 1, y + 8, y + 11, y + 16, y + 16, y + 19, y + 19, y + 14};
+                        int[] xsCabeza = { x + 39, x + 35, x + 18, x + 11, x + 11, x + 16, x + 17, x + 24, x + 34,
+                                x + 39 };
+                        int[] ysCabeza = { y + 5, y + 1, y + 1, y + 8, y + 11, y + 16, y + 16, y + 19, y + 19, y + 14 };
                         g.fillPolygon(xsCabeza, ysCabeza, xsCabeza.length);
                         g.setColor(new Color(252, 116, 96));
-                        int[] xsojo = {x + 39, x + 22, x + 19, x + 25, x + 39};
-                        int[] ysojo = {y + 7, y + 7, y + 8, y + 13, y + 13};
+                        int[] xsojo = { x + 39, x + 22, x + 20, x + 24, x + 39 };
+                        int[] ysojo = { y + 7, y + 7, y + 9, y + 13, y + 13 };
                         g.fillPolygon(xsojo, ysojo, xsojo.length);
                         g.setColor(Color.BLACK);
                         g.fillRect(x + 33, y + 7, 3, 6);
@@ -476,12 +464,14 @@ public class Bomberman {
                         g.fillRect(x + 10, y + 1, 3, 2);
                     } else if (pasos == 1) {
                         g.setColor(new Color(252, 252, 252));
-                        int[] xsCabeza = {x + 40, x + 36, x + 19, x + 12, x + 12, x + 17, x + 18, x + 25, x + 35, x + 40};
-                        int[] ysCabeza = {y + 8, y + 4, y + 4, y + 11, y + 14, y + 19, y + 19, y + 22, y + 22, y + 17};
+                        int[] xsCabeza = { x + 40, x + 36, x + 19, x + 12, x + 12, x + 17, x + 18, x + 25, x + 35,
+                                x + 40 };
+                        int[] ysCabeza = { y + 8, y + 4, y + 4, y + 11, y + 14, y + 19, y + 19, y + 22, y + 22,
+                                y + 17 };
                         g.fillPolygon(xsCabeza, ysCabeza, xsCabeza.length);
                         g.setColor(new Color(252, 116, 96));
-                        int[] xsojo = {x + 40, x + 23, x + 20, x + 26, x + 40};
-                        int[] ysojo = {y + 10, y + 10, y + 11, y + 16, y + 16};
+                        int[] xsojo = { x + 40, x + 23, x + 21, x + 25, x + 40 };
+                        int[] ysojo = { y + 10, y + 10, y + 12, y + 16, y + 16 };
                         g.fillPolygon(xsojo, ysojo, xsojo.length);
                         g.setColor(Color.BLACK);
                         g.fillRect(x + 34, y + 10, 3, 6);
@@ -491,24 +481,8 @@ public class Bomberman {
                         g.fillRect(x + 13, y + 3, 2, 2);
                         g.setColor(new Color(252, 116, 96));
                         g.fillRect(x + 12, y + 1, 2, 2);
-                    } else if (pasos == 3) {
-                        g.setColor(new Color(252, 252, 252));
-                        int[] xsCabeza = {x + 39, x + 35, x + 18, x + 11, x + 11, x + 19, x + 34, x + 39};
-                        int[] ysCabeza = {y + 5, y + 1, y + 1, y + 8, y + 11, y + 19, y + 19, y + 14};
-                        g.fillPolygon(xsCabeza, ysCabeza, xsCabeza.length);
-                        g.setColor(new Color(252, 116, 96));
-                        int[] xsojo = {x + 39, x + 22, x + 19, x + 25, x + 39};
-                        int[] ysojo = {y + 7, y + 7, y + 8, y + 13, y + 13};
-                        g.fillPolygon(xsojo, ysojo, xsojo.length);
-                        g.setColor(Color.BLACK);
-                        g.fillRect(x + 33, y + 7, 3, 6);
-                        g.fillRect(x + 27, y + 7, 3, 6);
-                        g.setColor(new Color(252, 252, 252));
-                        g.fillRect(x + 13, y + 1, 2, 2);
-                        g.setColor(new Color(252, 116, 96));
-                        g.fillRect(x + 10, y + 1, 3, 2);
                     }
-                    //       pies
+                    // pies
                     if (pasos == 0 || pasos == 2) {
                         g.setColor(new Color(252, 252, 252));
                         g.fillRect(x + 17, y + 38, 5, 7);
@@ -540,12 +514,12 @@ public class Bomberman {
                         g.fillRect(x + 35, y + 36, 4, 8);
                         g.fillRect(x + 37, y + 34, 2, 10);
                         g.fillRect(x + 14, y + 47, 4, 2);
-                        int[] xsBota = {x + 15, x + 15, x + 14, x + 10, x + 7};
-                        int[] ysBota = {y + 49, y + 46, y + 43, y + 39, y + 42};
+                        int[] xsBota = { x + 15, x + 15, x + 14, x + 10, x + 7 };
+                        int[] ysBota = { y + 49, y + 46, y + 43, y + 39, y + 42 };
                         g.fillPolygon(xsBota, ysBota, xsBota.length);
                     }
 
-//                        manos
+                    // manos
                     if (pasos == 0 || pasos == 2) {
                         g.setColor(new Color(252, 252, 252));
                         g.fillArc(x + 13, y + 22, 17, 14, 90, 200);
@@ -556,8 +530,8 @@ public class Bomberman {
                     } else if (pasos == 1) {
                         g.setColor(new Color(252, 252, 252));
                         g.fillOval(x + 15, y + 21, 7, 7);
-                        int[] xsBrazos = {x + 22, x + 15, x + 7, x + 13};
-                        int[] ysBrazos = {y + 25, y + 24, y + 36, y + 36};
+                        int[] xsBrazos = { x + 22, x + 15, x + 7, x + 13 };
+                        int[] ysBrazos = { y + 25, y + 24, y + 36, y + 36 };
                         g.fillPolygon(xsBrazos, ysBrazos, xsBrazos.length);
                         g.setColor(new Color(252, 116, 96));
                         g.fillOval(x + 7, y + 31, 7, 7);
@@ -614,10 +588,12 @@ public class Bomberman {
                 g.fillRect(x + 25, y + 10, 3, 3);
                 g.fillRect(x + 31, y + 4, 3, 3);
                 g.setColor(new Color(60, 188, 252));
-                int[] xsCuerpo = {x + 34, x + 46, x + 46, x + 35, x + 15, x + 4, x + 4, x + 16, x + 15,
-                        x + 25, x + 34, x + 36, x + 27, x + 38, x + 36, x + 30, x + 30, x + 28, x + 28, x + 15, x + 15, x + 21, x + 21, x + 12, x + 15, x + 16};
-                int[] ysCuerpo = {y + 15, y + 26, y + 35, y + 49, y + 49, y + 35, y + 26, y + 15, y + 23,
-                        y + 29, y + 18, y + 20, y + 31, y + 38, y + 40, y + 36, y + 42, y + 42, y + 35, y + 38, y + 35, y + 35, y + 31, y + 25, y + 23, y + 15};
+                int[] xsCuerpo = { x + 34, x + 46, x + 46, x + 35, x + 15, x + 4, x + 4, x + 16, x + 15,
+                        x + 25, x + 34, x + 36, x + 27, x + 38, x + 36, x + 30, x + 30, x + 28, x + 28, x + 15, x + 15,
+                        x + 21, x + 21, x + 12, x + 15, x + 16 };
+                int[] ysCuerpo = { y + 15, y + 26, y + 35, y + 49, y + 49, y + 35, y + 26, y + 15, y + 23,
+                        y + 29, y + 18, y + 20, y + 31, y + 38, y + 40, y + 36, y + 42, y + 42, y + 35, y + 38, y + 35,
+                        y + 35, y + 31, y + 25, y + 23, y + 15 };
                 g.fillPolygon(xsCuerpo, ysCuerpo, xsCuerpo.length);
                 g.setColor(new Color(252, 116, 96));
                 g.fillOval(x + 6, y + 17, 7, 7);
@@ -653,10 +629,12 @@ public class Bomberman {
                 g.fillRect(x + 25, y + 10, 3, 3);
                 g.fillRect(x + 31, y + 4, 3, 3);
                 g.setColor(new Color(60, 188, 252));
-                int[] xsCuerpo = {x + 34, x + 43, x + 43, x + 35, x + 15, x + 7, x + 7, x + 16, x + 16, x + 22,
-                        x + 26, x + 36, x + 29, x + 38, x + 32, x + 26, x + 15, x + 13, x + 13, x + 20, x + 12, x + 16, x + 16};
-                int[] ysCuerpo = {y + 13, y + 28, y + 37, y + 49, y + 49, y + 37, y + 28, y + 13, y + 20, y + 26,
-                        y + 19, y + 19, y + 26, y + 38, y + 42, y + 35, y + 43, y + 40, y + 33, y + 32, y + 25, y + 20, y + 13};
+                int[] xsCuerpo = { x + 34, x + 43, x + 43, x + 35, x + 15, x + 7, x + 7, x + 16, x + 16, x + 22,
+                        x + 26, x + 36, x + 29, x + 38, x + 32, x + 26, x + 15, x + 13, x + 13, x + 20, x + 12, x + 16,
+                        x + 16 };
+                int[] ysCuerpo = { y + 13, y + 28, y + 37, y + 49, y + 49, y + 37, y + 28, y + 13, y + 20, y + 26,
+                        y + 19, y + 19, y + 26, y + 38, y + 42, y + 35, y + 43, y + 40, y + 33, y + 32, y + 25, y + 20,
+                        y + 13 };
                 g.fillPolygon(xsCuerpo, ysCuerpo, xsCuerpo.length);
                 g.setColor(new Color(252, 116, 96));
                 g.fillOval(x + 6, y + 17, 7, 7);
@@ -858,7 +836,7 @@ public class Bomberman {
         puntaje = 0;
         vidas = 3;
         conVida = true;
-//        poderes
+        // poderes
         detonator = false;
         speed = false;
         pasos = 0;
@@ -976,7 +954,8 @@ public class Bomberman {
             }
         }
         for (Bomba bomba : bombas) {
-            if ((!bombPass) && (bomba.getEstado() == 1) && (!bomba.isIntangibleBomber()) && (getBondsBomber().intersects(bomba.getBonesBomb()))) {
+            if ((!bombPass) && (bomba.getEstado() == 1) && (!bomba.isIntangibleBomber())
+                    && (getBondsBomber().intersects(bomba.getBonesBomb()))) {
                 return true;
             }
         }
@@ -1022,7 +1001,6 @@ public class Bomberman {
     public void setSpeed(boolean speed) {
         this.speed = speed;
     }
-
 
     public int getY() {
         return y;
